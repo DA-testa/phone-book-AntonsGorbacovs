@@ -8,7 +8,14 @@ class PhoneBook:
         self.contacts = {}
         
     def add_contact(self, number, name):
-        self.contacts[number] = Contact(number, name)
+        if len(str(number)) <= 7 and len(str(name)) <= 15:
+            zero = list(str(number))
+            if int(zero[0]) != 0:
+                 self.contacts[number] = Contact(number, name)
+                 print(zero[0])
+        else:
+            print("input error")
+            return
         
     def delete_contact(self, number):
         if number in self.contacts:
@@ -23,10 +30,14 @@ class PhoneBook:
 def read_queries():
     n = int(input)
     queries = []
-    for i in range(n):
-        query = input().split()
-        queries.append((query[0], int(query[1]), query[2] if len(query) == 3 else None))
-    return queries
+    if 0 <= n <= 100000:
+        for i in range(n):
+            query = input().split()
+            queries.append((query[0], int(query[1]), query[2] if len(query) == 3 else None))
+        return queries
+    else:
+        print("input error")
+        return
 
 def write_responses(result):
     for i in result:
