@@ -12,7 +12,6 @@ class PhoneBook:
             zero = list(str(number))
             if int(zero[0]) != 0:
                  self.contacts[number] = Contact(number, name)
-                 print(zero[0])
         else:
             print("input error")
             return
