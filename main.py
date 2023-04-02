@@ -16,7 +16,7 @@ def write_responses(result):
 
 def process_queries(queries):
     result = []
-    contacts = []
+    contacts = {}
     for cur_query in queries:
         if cur_query.type == 'add':
             for contact in contacts:
